@@ -1,6 +1,6 @@
 /* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
-
-/* Create 3 or more product objects using object literal notation 
+const products = []
+/* Create 3 or more product objects using object literal notation
    Each product should include five properties
    - name: name of product (string)
    - price: price of product (number)
@@ -8,21 +8,63 @@
    - productId: unique id for the product (number)
    - image: picture of product (url string)
 */
+const cherry = {
+  name: "Cherry",
+  price: 23,
+  quantity: 0,
+  productId: 0,
+  image: "../images/cherry.jpg"
+
+}
+
+const orange = {
+  name: "Orange",
+  price: 25,
+  quantity: 0,
+  productId: 1,
+  image: "/images/orange.jpg"
+
+}
+
+const strawberry = {
+  name: "Strawberry",
+  price: 15,
+  quantity: 0,
+  productId: 2,
+  image: "/images/strawberry.jpg"
+
+}
+
+const vhsTape = {
+  name: "Blank VHS Tape",
+  price: 2,
+  quantity: 0,
+  productId:3,
+  image:"/images/vhstape.jpg"
+}
+
 
 /* Images provided in /images folder. All images from Unsplash.com
    - cherry.jpg by Mae Mu
    - orange.jpg by Mae Mu
    - strawberry.jpg by Allec Gomes
 */
-
+products.push(cherry, orange, strawberry, vhsTape);
 /* Declare an empty array named cart to hold the items in the cart */
-
+let cart = [];
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
+function addProductToCart(productId) {
+  const item = products.find(item => item.productId === productId);
+  if (item) {
+    item.quantity++;
+    cart.push(item);
+  }
 
+}
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
@@ -55,7 +97,7 @@
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
 
-/* The following is for running unit tests. 
+/* The following is for running unit tests.
    To fully complete this project, it is expected that all tests pass.
    Run the following command in terminal to run tests
    npm run test
@@ -69,7 +111,7 @@ module.exports = {
    decreaseQuantity,
    removeProductFromCart,
    cartTotal,
-   pay, 
+   pay,
    emptyCart,
    /* Uncomment the following line if completing the currency converter bonus */
    // currency
