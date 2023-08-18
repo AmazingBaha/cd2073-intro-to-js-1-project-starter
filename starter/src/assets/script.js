@@ -60,40 +60,75 @@ let cart = [];
 function addProductToCart(productId) {
   const item = products.find(item => item.productId === productId);
   if (item) {
-    item.quantity++;
-    cart.push(item);
+    const cartItem = cart.find(cartItem => cartItem.productId === productId);
+    if (cartItem){
+      cartItem.quantity++;
+    } else {
+      const newItem = {...item, quantity: 1 };
+      cart.push(newItem);
+    }
   }
-
 }
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
-
+function increaseQuantity(productId){
+  const item = cart.find(item => item.productId === productId);
+  if (item) {
+    item.quantity++;
+ }
+}
 /* Create a function named decreaseQuantity that takes in the productId as an argument
   - decreaseQuantity should get the correct product based on the productId
   - decreaseQuantity should decrease the quantity of the product
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
-
+function decreaseQuantity(productId){
+  const item = cart.find(item => item.productId === productId);
+  if (item) {
+    item.quantity--;
+    if (item.quantity === 0){
+      const index = cart.indexOf(item);
+      if (index >= 0){
+        cart.splice(index, 1);
+      }
+    }
+ }
+}
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
   - removeProductFromCart should update the product quantity to 0
   - removeProductFromCart should remove the product from the cart
 */
-
+function removeProductFromCart(productId){
+  const item = cart.find(item => item.productId === productId);
+  if (item) {
+    const index = cart.indexOf(item);
+  if (index >= 0) {
+    cart.splice(index,1);
+  }
+  }
+}
 /* Create a function named cartTotal that has no parameters
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
+function cartTotal() {
 
+
+}
 /* Create a function called emptyCart that empties the products from the cart */
+function emptyCart(){
 
+}
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
+function pay(){
 
+}
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
 
