@@ -1,7 +1,41 @@
+<<<<<<< HEAD
 /* Create an array named products which you will use to add all of your product object
 literals that you create in the next step. */
+||||||| merged common ancestors
+<<<<<<<<< Temporary merge branch 1
+/* Create an array named products which you will use to add all
+  of your product object literals that you create in the next
+  step. */
+=======
+<<<<<<< HEAD
+/* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+>>>>>>> aced26e04dd7c107898eea015ccf9f07a861c448
 let products = []
+<<<<<<< HEAD
 
+||||||| merged common ancestors
+||||||||| c4c0fc1
+/* Create an array named products which you will use to add all
+  of your product object literals that you create in the next
+  step. */
+const products = []
+=========
+/* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+let products = []
+>>>>>>>>> Temporary merge branch 2
+=======
+||||||| c4c0fc1
+/* Create an array named products which you will use to add all
+  of your product object literals that you create in the next
+  step. */
+const products = []
+=======
+/* Create an array named products which you will use to add all
+  of your product object literals that you create in the next
+  step. */
+let products = []
+>>>>>>> d9a96e9387f303af6701fcba1c81081896466757
+>>>>>>> aced26e04dd7c107898eea015ccf9f07a861c448
 /* Create 3 or more product objects using object literal notation
    Each product should include five properties
    - name: name of product (string)
