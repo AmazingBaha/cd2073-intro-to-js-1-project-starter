@@ -58,13 +58,14 @@ let cart = [];
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  const item = products.find(item => item.productId === productId);
-  if (item) {
+  const product = products.find(item => item.productId === productId);
+  if (product) {
+    product.quantity++;
     const cartItem = cart.find(cartItem => cartItem.productId === productId);
-    if (cartItem){
+    if (cartItem) {
       cartItem.quantity++;
     } else {
-      const newItem = {...item, quantity: 1 };
+      const newItem = { ...product };
       cart.push(newItem);
     }
   }
@@ -73,28 +74,42 @@ function addProductToCart(productId) {
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
-function increaseQuantity(productId){
-  const item = cart.find(item => item.productId === productId);
-  if (item) {
-    item.quantity++;
+function increaseQuantity(productId) {
+  const product = products.find(item => item.productId === productId);
+  if (product) {
+    product.quantity++;
+    const cartItem = cart.find(item => item.productId === productId);
+    if (cartItem) {
+      cartItem.quantity++;
  }
+}
 }
 /* Create a function named decreaseQuantity that takes in the productId as an argument
   - decreaseQuantity should get the correct product based on the productId
   - decreaseQuantity should decrease the quantity of the product
   - if the function decreases the quantity to 0, the product is removed from the cart
 */
-function decreaseQuantity(productId){
-  const item = cart.find(item => item.productId === productId);
-  if (item) {
-    item.quantity--;
-    if (item.quantity === 0){
-      const index = cart.indexOf(item);
-      if (index >= 0){
-        cart.splice(index, 1);
+function decreaseQuantity(productId) {
+  const product = products.find(item => item.productId === productId);
+  if (product) {
+    product.quantity--;
+    if (product.quantity === 0) {
+      const index = products.indexOf(product);
+      if (index >= 0) {
+        products.splice(index, 1);
       }
     }
- }
+    const cartItem = cart.find(item => item.productId === productId);
+    if (cartItem) {
+      cartItem.quantity--;
+      if (cartItem.quantity === 0) {
+        const index = cart.indexOf(cartItem);
+        if (index >= 0) {
+          cart.splice(index, 1);
+        }
+      }
+    }
+  }
 }
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
