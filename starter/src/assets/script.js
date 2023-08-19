@@ -1,4 +1,6 @@
-/* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+/* Create an array named products which you will use to add all
+  of your product object literals that you create in the next
+  step. */
 const products = []
 /* Create 3 or more product objects using object literal notation
    Each product should include five properties
@@ -15,7 +17,7 @@ const cherry = {
   productId: 0,
   image: "../images/cherry.jpg"
 
-}
+};
 
 const orange = {
   name: "Orange",
@@ -24,7 +26,7 @@ const orange = {
   productId: 1,
   image: "/images/orange.jpg"
 
-}
+};
 
 const strawberry = {
   name: "Strawberry",
@@ -33,7 +35,7 @@ const strawberry = {
   productId: 2,
   image: "/images/strawberry.jpg"
 
-}
+};
 
 const vhsTape = {
   name: "Blank VHS Tape",
@@ -41,7 +43,7 @@ const vhsTape = {
   quantity: 0,
   productId:3,
   image:"/images/vhstape.jpg"
-}
+};
 
 
 /* Images provided in /images folder. All images from Unsplash.com
@@ -52,16 +54,17 @@ const vhsTape = {
 products.push(cherry, orange, strawberry, vhsTape);
 /* Declare an empty array named cart to hold the items in the cart */
 let cart = [];
-/* Create a function named addProductToCart that takes in the product productId as an argument
+/*  Create a function named addProductToCart that takes in the
+    product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  const product = products.find(item => item.productId === productId);
+  const product = products.find((item) => item.productId === productId);
   if (product) {
     product.quantity++;
-    const cartItem = cart.find(cartItem => cartItem.productId === productId);
+    const cartItem = cart.find((cartItem) => cartItem.productId === productId);
     if (cartItem) {
       cartItem.quantity++;
     } else {
@@ -70,24 +73,27 @@ function addProductToCart(productId) {
     }
   }
 }
-/* Create a function named increaseQuantity that takes in the productId as an argument
+/* Create a function named increaseQuantity that takes in the
+   productId as an argument
   - increaseQuantity should get the correct product based on the productId
   - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId) {
-  const product = products.find(item => item.productId === productId);
+  const product = products.find((item) => item.productId === productId);
   if (product) {
     product.quantity++;
-    const cartItem = cart.find(item => item.productId === productId);
+    const cartItem = cart.find((item) => item.productId === productId);
     if (cartItem) {
       cartItem.quantity++;
  }
 }
 }
-/* Create a function named decreaseQuantity that takes in the productId as an argument
+/* Create a function named decreaseQuantity that takes in the productId
+  as an argument
   - decreaseQuantity should get the correct product based on the productId
   - decreaseQuantity should decrease the quantity of the product
-  - if the function decreases the quantity to 0, the product is removed from the cart
+  - if the function decreases the quantity to 0, the product is removed
+    from the cart
 */
 function decreaseQuantity(productId) {
   const product = products.find(item => item.productId === productId);
@@ -111,7 +117,8 @@ function decreaseQuantity(productId) {
     }
   }
 }
-/* Create a function named removeProductFromCart that takes in the productId as an argument
+/* Create a function named removeProductFromCart that takes in the
+   productId as an argument
   - removeProductFromCart should get the correct product based on the productId
   - removeProductFromCart should update the product quantity to 0
   - removeProductFromCart should remove the product from the cart
@@ -155,7 +162,8 @@ function pay(amount){
     return amount - cartTotal();
   }
 }
-/* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
+/* Place stand out suggestions here (stand out suggestions can be found at
+  the bottom of the project rubric.)*/
 
 
 /* The following is for running unit tests.
@@ -164,7 +172,7 @@ function pay(amount){
    npm run test
 */
 
-module.exports = {
+export default {
    products,
    cart,
    addProductToCart,
