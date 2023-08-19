@@ -15,7 +15,7 @@ const cherry = {
   price: 23,
   quantity: 0,
   productId: 0,
-  image: "../images/cherry.jpg"
+  image: "./images/cherry.jpg"
 
 };
 
@@ -24,7 +24,7 @@ const orange = {
   price: 25,
   quantity: 0,
   productId: 1,
-  image: "/images/orange.jpg"
+  image: "./images/cherry.jpg"
 
 };
 
@@ -33,7 +33,7 @@ const strawberry = {
   price: 15,
   quantity: 0,
   productId: 2,
-  image: "/images/strawberry.jpg"
+  image: "./images/cherry.jpg"
 
 };
 
@@ -42,7 +42,7 @@ const vhsTape = {
   price: 2,
   quantity: 0,
   productId:3,
-  image:"/images/vhstape.jpg"
+  image:"./images/cherry.jpg"
 };
 
 
@@ -69,7 +69,7 @@ function addProductToCart(productId) {
       cartItem.quantity++;
     } else {
       const newItem = { ...product };
-      cart.push(newItem);
+
     }
   }
 }
