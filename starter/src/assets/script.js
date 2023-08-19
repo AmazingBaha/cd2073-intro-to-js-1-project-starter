@@ -115,19 +115,30 @@ function removeProductFromCart(productId){
   - cartTotal should return the sum of the products in the cart
 */
 function cartTotal() {
-
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+  });
+  return total
 
 }
 /* Create a function called emptyCart that empties the products from the cart */
 function emptyCart(){
-
+  if (cart.length > 0) {
+    cart = []
+  }
 }
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
-function pay(){
-
+function pay(amount){
+  const remainingBalance = amount - cartTotal();
+  if (remainingBalance < 0){
+    return remainingBalance;
+  } else {
+    return amount - cartTotal();
+  }
 }
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
